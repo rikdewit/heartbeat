@@ -13,31 +13,51 @@ let data = new Promise((resolve, reject) => {
 
 
 
-function useData(values) {
+function selectData(values) {
     let data = values[0]
     let currentTime = values[1];
     let prevMinutes = 0;
     for (let i = 1; i < data.length + 1; i++) {
-        let currentHours = currentTime.split(":")[0];
-        let currentMinutes = currentTime.split(":")[1];
-        let hours = data[i]["time"].split(":")[0];
-        let minutes = data[i]["time"].split(":")[1];
+        let currentHours = parseInt(currentTime.split(":")[0]);
+        let currentMinutes = parseInt(currentTime.split(":")[1]);
+        let hours = parseInt(data[i]["time"].split(":")[0]);
+        let minutes = parseInt(data[i]["time"].split(":")[1]);
+
 
 
         if (hours == currentHours && minutes >= currentMinutes) {
+
             console.log(data[i - 1]["time"]);
             console.log(data[i - 1]["heartrate"]);
-            return data[i - 1]["heartrate"];
+            return parseInt(data[i - 1]["heartrate"]);
         }
 
     }
 
 }
+let heartRate = 60;
 
-Promise.all([data, currentTime]).then((values) => setHeartBeat(useData(values)));
+Promise.all([data, currentTime]).then((values) => setHeartBeat(selectData(values)));
 
-function setHeartBeat(heartRate) {
-    console.log(heartRate);
-    document.querySelector("#heart").style.animationDuration = (60 / heartRate).toString() + "s";
+function setHeartBeat(rate) {
+    heartRate = rate;
+    heart = document.querySelector("#heart")
+    heart.style.animationDuration = (60 / heartRate).toString() + "s";
+    heart.addEventListener("animationiteration", heartStartAnimation, false);
+
+}
+
+function heartStartAnimation(event) {
+    var sound = new Howl({
+        src: ['heartbeat.wav']
+    });
+    beat = sound.play();
+    // let rate = 0;
+    // if (heartRate > 60) {
+    //     rate = heartRate / 60;
+    // } else {
+    //     rate = heartRate
+    // }
+    sound.rate(0.4 + heartRate / 80, beat);
 
 }
