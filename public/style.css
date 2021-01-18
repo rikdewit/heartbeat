@@ -5,6 +5,11 @@ body {
     width: 100%;
     height: 100%;
     background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6vmin;
+    font-family: 'Karla', sans-serif;
 }
 
 #heartcontainer {
@@ -20,17 +25,12 @@ body {
     height: 50vmin;
     border-radius: 25vmin;
     background-color: red;
+    background: radial-gradient(at center, red, rgb(237, 0, 0), rgb(165, 0, 0));
     transform-origin: center;
     animation-name: heartbeat;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     filter: blur(1.5px)
-}
-
-#heart:hover {
-    width: 60vmin;
-    height: 60vmin;
-    border-radius: 60vmin;
 }
 
 @keyframes heartbeat {
@@ -43,4 +43,43 @@ body {
     40% {
         transform: scale( 1.5)
     }
+}
+
+@keyframes heartbeatBig {
+    0% {
+        transform: scale( 1);
+    }
+    20% {
+        transform: scale( 1.5)
+    }
+    40% {
+        transform: scale( 2)
+    }
+}
+
+#messagecontainer {
+    position: absolute;
+    width: 5rem;
+    text-align: center;
+    /* background-color: white; */
+    z-index: 2;
+    animation: heartbeatBig;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+#message {
+    text-align: center;
+    line-height: 0.2rem;
+    color: white;
+    opacity: 0%;
+    transition-property: opacity;
+    transition-duration: 1s;
+}
+
+#message.visible {
+    display: block;
+    opacity: 100%;
+    transition-property: opacity;
+    transition-duration: 3s;
 }
