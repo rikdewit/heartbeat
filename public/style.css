@@ -1,0 +1,46 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}
+
+#heartcontainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#heart {
+    width: 50vmin;
+    height: 50vmin;
+    border-radius: 25vmin;
+    background-color: red;
+    transform-origin: center;
+    animation-name: heartbeat;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    filter: blur(1.5px)
+}
+
+#heart:hover {
+    width: 60vmin;
+    height: 60vmin;
+    border-radius: 60vmin;
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale( 1);
+    }
+    20% {
+        transform: scale( 1.25)
+    }
+    40% {
+        transform: scale( 1.5)
+    }
+}
