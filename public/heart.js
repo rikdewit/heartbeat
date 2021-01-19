@@ -1,6 +1,6 @@
 function fetchHeartbeat() {
     let currentTime = new Promise((resolve, reject) => {
-        fetch("http://" + window.location.host + '/time')
+        fetch(location.protocol + '/time')
             .then(res => res.text())
             .then(data => resolve(data))
 
@@ -8,12 +8,12 @@ function fetchHeartbeat() {
 
 
     let data = new Promise((resolve, reject) => {
-        fetch("http://" + window.location.host + '/data')
+        fetch(location.protocol + '/data')
             .then(res => resolve(res.json()))
     });
 
     let beats = new Promise((resolve, reject) => {
-        fetch("http://" + window.location.host + '/beats')
+        fetch(location.protocol + '/beats')
             .then(res => resolve(res.json()))
     });
 

@@ -1,6 +1,7 @@
 const express = require('express')
 const csv = require('csv-parser');
 const fs = require('fs');
+const { hostname } = require('os');
 // const csv = require('csvtojson')
 
 process.env.TZ = 'Europe/Amsterdam'
@@ -31,7 +32,7 @@ app.get('/beats', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`Example app listening at ${hostname}:${port}`)
 })
 
 function getCurrentHeartRate() {
