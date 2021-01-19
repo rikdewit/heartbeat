@@ -11,6 +11,8 @@ body {
     font-size: 6vmin;
     font-family: 'Karla', sans-serif;
     user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
 }
 
 #heartcontainer {

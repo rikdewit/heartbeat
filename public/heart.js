@@ -67,11 +67,12 @@ function setHeartBeat(rate) {
 }
 
 function heartStartAnimation(event) {
-
+    let sound = new Howl({
+        src: ['heartbeat.wav'],
+        preload: true,
+    });
     if (clickedStart) {
-        let sound = new Howl({
-            src: ['heartbeat.wav']
-        });
+
         beat = sound.play();
         sound.rate(0.4 + heartRate / 90, beat);
     }
