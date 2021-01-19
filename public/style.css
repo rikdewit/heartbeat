@@ -75,6 +75,7 @@ body {
     opacity: 0%;
     transition-property: opacity;
     transition-duration: 1s;
+    filter: blur(0.2px);
 }
 
 #message.visible {
@@ -82,4 +83,40 @@ body {
     opacity: 100%;
     transition-property: opacity;
     transition-duration: 3s;
+}
+
+#buttoncontainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    background-color: rgba(255, 255, 255, 0);
+    /* border-width: .03rem;
+    border-color: white; */
+    /* border-style: solid; */
+    text-align: center;
+    z-index: 3;
+    animation: heartbeatBig;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+#button.visible {
+    opacity: 100%;
+    display: block;
+    pointer-events: all;
+    filter: blur(.2px);
+}
+
+#button {
+    text-align: center;
+    color: white;
+    opacity: 0%;
+    transition-property: opacity;
+    transition-duration: 1s;
+    pointer-events: none;
+    cursor: pointer;
 }

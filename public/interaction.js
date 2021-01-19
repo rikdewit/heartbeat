@@ -1,24 +1,29 @@
 window.onload = (event) => {
-    let element = document.querySelector("#message");
-    setTimeout(appear, 1000);
-    setTimeout(disappear, 3000);
-    setTimeout(function() { text("is") }, 4000);
-    setTimeout(appear, 4000);
-    setTimeout(disappear, 6000);
-    setTimeout(function() { text("mijn") }, 7000);
-    setTimeout(appear, 7000);
-    setTimeout(disappear, 9000);
-    setTimeout(function() { text("hartslag") }, 10000);
-    setTimeout(appear, 10000);
-    setTimeout(disappear, 13000);
-
-
-
-
-
+    let button = document.querySelector("#button");
+    button.addEventListener("click",
+        function() {
+            button.classList.remove("visible");
+            textSequence();
+        });
 };
 
+function textSequence() {
+    setTimeout(appear, 2000);
+    setTimeout(disappear, 4000);
+    setTimeout(function() { text("is") }, 5000);
+    setTimeout(appear, 5000);
+    setTimeout(disappear, 7000);
+    setTimeout(function() { text("mijn") }, 8000);
+    setTimeout(appear, 8000);
+    setTimeout(disappear, 10000);
+    setTimeout(function() { text("hartslag") }, 11000);
+    setTimeout(appear, 11000);
+    setTimeout(disappear, 14000);
+}
 
+function clicked() {
+    document.querySelector("#button").classList.remove("visible");
+}
 
 function appear() {
     document.querySelector("#message").classList.add("visible");

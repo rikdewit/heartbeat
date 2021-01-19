@@ -41,10 +41,12 @@ Promise.all([data, currentTime]).then((values) => setHeartBeat(selectData(values
 
 function setHeartBeat(rate) {
     heartRate = rate;
-    heart = document.querySelector("#heart");
-    message = document.querySelector("#messagecontainer");
+    let heart = document.querySelector("#heart");
+    let message = document.querySelector("#messagecontainer");
+    let button = document.querySelector("#buttoncontainer");
     heart.style.animationDuration = (60 / heartRate).toString() + "s";
     message.style.animationDuration = (60 / heartRate).toString() + "s";
+    button.style.animationDuration = (60 / heartRate).toString() + "s";
     heart.addEventListener("animationiteration", heartStartAnimation, false);
 
 }
