@@ -1,6 +1,9 @@
 let messageFinished = false;
 let clickedStart = false;
 window.onload = (event) => {
+    setTimeout(() => {
+        document.querySelector("#polar").classList.remove("visible");
+    }, 2000);
     let button = document.querySelector("#button");
     button.addEventListener("click",
         function() {
