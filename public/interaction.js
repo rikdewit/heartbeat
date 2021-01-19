@@ -1,8 +1,10 @@
 let messageFinished = false;
+let clickedStart = false;
 window.onload = (event) => {
     let button = document.querySelector("#button");
     button.addEventListener("click",
         function() {
+            clickedStart = true;
             button.classList.remove("visible");
             textSequence();
         });
@@ -21,7 +23,10 @@ function textSequence() {
     setTimeout(appear, 11000);
     setTimeout(disappear, 14000);
     setTimeout(appear, 16000);
-    setTimeout(function() { messageFinished = true }, 14000)
+    setTimeout(function() {
+        messageFinished = true;
+        updateTotalBeats();
+    }, 16000)
 }
 
 function clicked() {

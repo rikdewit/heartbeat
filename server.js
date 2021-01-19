@@ -3,6 +3,7 @@ const csv = require('csv-parser');
 const fs = require('fs');
 // const csv = require('csvtojson')
 
+process.env.TZ = 'Europe/Amsterdam'
 
 const app = express()
 const port = 3000
@@ -21,11 +22,10 @@ app.get('/time', (req, res) => {
 });
 
 app.get('/beats', (req, res) => {
-    let date_ob = new Date();
     let now = new Date();
     let birthDate = new Date("06/21/1997");
     timeDifference = Math.abs(now.getTime() - birthDate.getTime());
-    beats = (1.3 * timeDifference / 1000).toFixed();
+    beats = (1.2 * timeDifference / 1000).toFixed();
 
     res.send(beats);
 });
