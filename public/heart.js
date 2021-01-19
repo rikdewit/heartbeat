@@ -11,11 +11,17 @@ let data = new Promise((resolve, reject) => {
         .then(res => resolve(res.json()))
 });
 
+let beats = new Promise((resolve, reject) => {
+    fetch("http://" + window.location.host + '/beats')
+        .then(res => resolve(res.json()))
+});
 
+let totalBeats;
 
 function selectData(values) {
     let data = values[0]
     let currentTime = values[1];
+    totalBeats = values[2];
     let prevMinutes = 0;
     for (let i = 1; i < data.length + 1; i++) {
         let currentHours = parseInt(currentTime.split(":")[0]);
@@ -37,7 +43,7 @@ function selectData(values) {
 }
 let heartRate = 60;
 
-Promise.all([data, currentTime]).then((values) => setHeartBeat(selectData(values)));
+Promise.all([data, currentTime, beats]).then((values) => setHeartBeat(selectData(values)));
 
 function setHeartBeat(rate) {
     heartRate = rate;
@@ -63,5 +69,9 @@ function heartStartAnimation(event) {
     //     rate = heartRate
     // }
     sound.rate(0.4 + heartRate / 80, beat);
+    totalBeats += 1;
+    if (messageFinished) {
+        document.querySelector("#message").innerText = totalBeats.toString();
+    }
 
 }

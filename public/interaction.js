@@ -1,3 +1,4 @@
+let messageFinished = false;
 window.onload = (event) => {
     let button = document.querySelector("#button");
     button.addEventListener("click",
@@ -19,6 +20,8 @@ function textSequence() {
     setTimeout(function() { text("hartslag") }, 11000);
     setTimeout(appear, 11000);
     setTimeout(disappear, 14000);
+    setTimeout(appear, 16000);
+    setTimeout(function() { messageFinished = true }, 14000)
 }
 
 function clicked() {

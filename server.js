@@ -20,6 +20,16 @@ app.get('/time', (req, res) => {
     res.send(time);
 });
 
+app.get('/beats', (req, res) => {
+    let date_ob = new Date();
+    let now = new Date();
+    let birthDate = new Date("06/21/1997");
+    timeDifference = Math.abs(now.getTime() - birthDate.getTime());
+    beats = (1.3 * timeDifference / 1000).toFixed();
+
+    res.send(beats);
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
