@@ -129,7 +129,7 @@ body {
     cursor: pointer;
 }
 
-#polar {
+#polarcontainer {
     position: absolute;
     left: 8%;
     bottom: 6%;
@@ -137,8 +137,22 @@ body {
     width: 15vmax;
     transition-property: opacity;
     transition-duration: 1s;
+    background: white;
+    border-radius: 8px;
 }
 
-#polar.visible {
+#polarcontainer.visible {
     opacity: 100%;
 }
+
+#polar {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    padding-left: 0.12rem;
+}
+
+
+/* #polar.visible {
+
+} */
