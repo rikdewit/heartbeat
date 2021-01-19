@@ -78,7 +78,7 @@ body {
     opacity: 0%;
     transition-property: opacity;
     transition-duration: 1s;
-    filter: blur(0.005rem);
+    /* filter: blur(0.005rem); */
 }
 
 #message.visible {
