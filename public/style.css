@@ -85,6 +85,11 @@ body {
     transition-duration: 3s;
 }
 
+#message.numbers {
+    font-size: 0.8rem;
+    font-family: 'Courier Prime', monospace;
+}
+
 #buttoncontainer {
     position: absolute;
     display: flex;

@@ -26,6 +26,7 @@ function textSequence() {
     setTimeout(function() {
         messageFinished = true;
         updateTotalBeats();
+        document.querySelector("#message").classList.add("numbers");
     }, 16000)
 }
 
