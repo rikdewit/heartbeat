@@ -2,6 +2,7 @@ config.yml
 auth.py
 node_modules
 .DS_STORE
+data.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

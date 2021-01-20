@@ -8,6 +8,7 @@ from selenium.webdriver.chrome.options import Options
 
 from datetime import datetime
 import time
+import sys
 
 from auth import login_credentials
 import csv
@@ -29,7 +30,9 @@ chrome_options.add_argument("--headless")
 driver = webdriver.Chrome(options = chrome_options)
 driver.set_window_size(1440, 900)
 driver.get("https://flow.polar.com/login")
+print("opened login page")
 WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, "#email")))
+
 time.sleep(.1)
 
 email = driver.find_element_by_id("email")
@@ -39,20 +42,25 @@ login = driver.find_element_by_id("login")
 email.send_keys(login_credentials["email"])
 password.send_keys(login_credentials["password"])
 login.click()
-
+print("logged in")
 try:
 
     WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.XPATH, "//*[@id='activity-summary']")))
     driver.get("https://flow.polar.com/diary/activity")
 
+    print("opened activity page")
+
     last_sync_selector = "#activity-graph-last_sync"
-    last_sync = WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, last_sync_selector))).get_attribute("innerHTML").split(" ")[-1]
-    print(last_sync)
+    try:
+        last_sync = WebDriverWait(driver, 2).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, last_sync_selector))).get_attribute("innerHTML").split(" ")[-1]
+        print(last_sync)
+    except:
+        pass
 
     arrow_left_selector = ".icon-arrow-left"
     arrow = driver.find_element_by_css_selector(arrow_left_selector).click()
     # WebDriverWait(driver, 10).until(expected_conditions.presence_of_element_located((By.CSS_SELECTOR, last_sync_selector)))
-
+    print("navigated to yesterday")
     chart_selector = ".highcharts-root"
     time_selector = ".highcharts-tooltip table tbody tr:nth-child(1) span"
     hr_selector = ".highcharts-tooltip table tbody tr:nth-child(2) span"
@@ -97,18 +105,23 @@ try:
 
     with open("data.csv", 'w', newline="") as f: 
         writer = csv.writer(f)
+        writer.writerow(["time","heartrate"])
         for i, timestamp in enumerate(data["time"]):
             hr = data["heartrate"][i]
 
             line = [timestamp, hr]
             writer.writerow(line)
+    print("wrote data to csv file")
+    
 
-
-
+except:
+    print("exception occured")
+    # time.sleep(200)
+    driver.quit()
+    sys.exit(1)
 finally:
-    # time.sleep(10)
     driver.quit()
 
-
+sys.exit(0)
 
 

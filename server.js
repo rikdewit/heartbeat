@@ -39,7 +39,7 @@ function getCurrentHeartRate() {
 
     var csvData = [];
     return new Promise((resolve, reject) => {
-        fs.createReadStream('./data1.csv')
+        fs.createReadStream('./data.csv')
             .pipe(csv({ delimiter: ',' }), columns = false)
             .on('data', function(csvrow) {
                 //console.log(csvrow);
