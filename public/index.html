@@ -8,6 +8,7 @@
     <script src="interaction.js"></script>
     <script src="heart.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="audio.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap" rel="stylesheet">
@@ -15,23 +16,32 @@
 </head>
 
 <body>
-    <div id="heartcontainer">
-        <div id="heart"></div>
+    <div class="heartcontainer">
+        <div class="heart"></div>
     </div>
-    <div id="messagecontainer">
-        <div id="message">
+    <div class="messagecontainer">
+        <div class="message">
             <p>Dit</p>
         </div>
     </div>
 
-    <div id="buttoncontainer">
-        <div id="button" class="visible">
+    <div class="buttoncontainer">
+        <div class="button visible">
             <b>Start</b>
         </div>
     </div>
 
-    <div id="polarcontainer" class="visible">
-        <img id="polar" src="polar_logo.svg" alt="polar_logo">
+    <div class="polarcontainer visible">
+        <img class="polar" src="polar_logo.svg" alt="polar_logo">
+    </div>
+
+        <div class="speakerbox visible">
+            <div class="wave"></div>
+            <div class="wave1"></div>
+            <div class="wave2"></div>
+            <div class="speakercontainer">
+                <img class="speaker" src="speaker.svg" width="96" height="96"alt="">
+            </div>
     </div>
 
 </body>

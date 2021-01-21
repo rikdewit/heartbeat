@@ -15,15 +15,16 @@ body {
     -webkit-user-select: none;
 }
 
-#heartcontainer {
+.heartcontainer {
     height: 100%;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: absolute;
 }
 
-#heart {
+.heart {
     width: 50vmin;
     height: 50vmin;
     border-radius: 25vmin;
@@ -60,7 +61,7 @@ body {
     }
 }
 
-#messagecontainer {
+.messagecontainer {
     position: absolute;
     width: 5rem;
     text-align: center;
@@ -71,7 +72,7 @@ body {
     animation-iteration-count: infinite;
 }
 
-#message {
+.message {
     text-align: center;
     line-height: 0.2rem;
     color: white;
@@ -81,19 +82,19 @@ body {
     /* filter: blur(0.005rem); */
 }
 
-#message.visible {
+.message.visible {
     display: block;
     opacity: 100%;
     transition-property: opacity;
     transition-duration: 3s;
 }
 
-#message.numbers {
+.message.numbers {
     font-size: 0.8rem;
     font-family: 'Courier Prime', monospace;
 }
 
-#buttoncontainer {
+.buttoncontainer {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -113,13 +114,13 @@ body {
     filter: blur(0.005rem);
 }
 
-#button.visible {
+.button.visible {
     opacity: 100%;
     display: block;
     pointer-events: all;
 }
 
-#button {
+.button {
     text-align: center;
     color: white;
     opacity: 0%;
@@ -129,32 +130,27 @@ body {
     cursor: pointer;
 }
 
-#polarcontainer {
+.polarcontainer {
     position: absolute;
+    display: inline-flex;
     left: 8%;
     bottom: 6%;
     opacity: 0%;
-    width: 15vmax;
     transition-property: opacity;
     transition-duration: 1s;
+    transition-timing-function: ease-in;
     background: white;
-    border-radius: 0.18rem;
+    border-radius: max(0.18rem, 8px);
 }
 
-#polarcontainer.visible {
+.polarcontainer.visible {
     opacity: 100%;
 }
 
-#polar {
-    max-width: 100%;
-    padding: 0;
-    margin: 0;
-    padding-left: 0.3rem;
-    padding-top: 0.25rem;
-    margin-right: 0.3rem;
+.polar {
+    width: 3rem;
+    min-width: 100px;
+    padding: 0.5rem;
+    padding-left: max(20px,0.7rem);
+
 }
-
-
-/* #polar.visible {
-
-} */

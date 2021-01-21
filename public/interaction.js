@@ -2,9 +2,13 @@ let messageFinished = false;
 let clickedStart = false;
 window.onload = (event) => {
     setTimeout(() => {
-        document.querySelector("#polarcontainer").classList.remove("visible");
-    }, 2000);
-    let button = document.querySelector("#button");
+        document.querySelector(".polarcontainer").classList.remove("visible");
+    }, 3000);
+
+    setTimeout(() => {
+        document.querySelector(".speakerbox").classList.remove("visible");
+    }, 3000);
+    let button = document.querySelector(".button");
     button.addEventListener("click",
         function () {
             clickedStart = true;
@@ -29,22 +33,22 @@ function textSequence() {
     setTimeout(function () {
         messageFinished = true;
         updateTotalBeats();
-        document.querySelector("#message").classList.add("numbers");
+        document.querySelector("#.essage").classList.add("numbers");
     }, 16000)
 }
 
 function clicked() {
-    document.querySelector("#button").classList.remove("visible");
+    document.querySelector(".button").classList.remove("visible");
 }
 
 function appear() {
-    document.querySelector("#message").classList.add("visible");
+    document.querySelector(".message").classList.add("visible");
 }
 
 function disappear() {
-    document.querySelector("#message").classList.remove("visible");
+    document.querySelector(".message").classList.remove("visible");
 }
 
 function text(text) {
-    document.querySelector("#message").innerText = text;
+    document.querySelector(".message").innerText = text;
 }
