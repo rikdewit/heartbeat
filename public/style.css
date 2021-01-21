@@ -138,7 +138,7 @@ body {
     transition-property: opacity;
     transition-duration: 1s;
     background: white;
-    border-radius: 8px;
+    border-radius: 0.18rem;
 }
 
 #polarcontainer.visible {
@@ -149,7 +149,9 @@ body {
     max-width: 100%;
     padding: 0;
     margin: 0;
-    padding-left: 0.12rem;
+    padding-left: 0.3rem;
+    padding-top: 0.25rem;
+    margin-right: 0.3rem;
 }
 
 
