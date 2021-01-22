@@ -24,7 +24,7 @@ html, body{
 .cannon.big{
     width: 50vmin;
     height: 50vmin;
-    filter: blur(0.03rem)
+    filter: blur(0.03rem);
 
 }
 

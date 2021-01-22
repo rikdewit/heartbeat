@@ -79,8 +79,16 @@ window.addEventListener('load', (event) => {
         let coordZ = sphereBody.position.z * 5 + 45;
         let coordY = sphereBody.position.x * 5 + 23.72;
 
-        cannon.style.bottom = coordZ.toString() + "vh";
-        cannon.style.left = coordY.toString() + "vw";
+        if (!cannon.classList.contains("big")) {
+            cannon.style.bottom = coordZ.toString() + "vh";
+            cannon.style.left = coordY.toString() + "vw";
+        } else {
+            cannon.style.transitionProperty = "width, height, blur, bottom, left";
+            cannon.style.bottom = "50vh";
+            cannon.style.left = "50vw";
+        }
+
+
 
         lastTime = time;
     })();
