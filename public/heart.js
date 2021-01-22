@@ -15,7 +15,7 @@ function fetchHeartbeat() {
     let beats = new Promise((resolve, reject) => {
         fetch(location.protocol + '/beats')
             .then(res => resolve(res.json()))
-            .catch(totalBeats = 200000);
+            .catch(totalBeats = 893399454);
     });
 
     return [data, currentTime, beats]

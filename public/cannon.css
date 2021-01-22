@@ -28,6 +28,11 @@ html, body{
 
 }
 
+.cannon.hidden{
+    opacity: 0%;
+    transition: none
+}
+
 .cannoncontainer{
     height: 100%;
     width: 100%;

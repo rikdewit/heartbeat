@@ -14,6 +14,10 @@ window.onload = (event) => {
     setTimeout(() => button.classList.add("visible"), 7000);
     setTimeout(() => heart.classList.add("visible"), 7000);
 
+    setTimeout(() => cannon.classList.add("hidden"), 7000);
+
+
+
     setTimeout(() => polar.classList.remove("visible"), 12000);
     setTimeout(() => speaker.classList.remove("visible"), 12000);
 
