@@ -22,6 +22,11 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
+    opacity: 0%;
+}
+
+.heartcontainer.visible{
+    opacity: 100%;
 }
 
 .heart {

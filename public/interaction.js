@@ -1,18 +1,29 @@
 let messageFinished = false;
 let clickedStart = false;
 window.onload = (event) => {
-    setTimeout(() => {
-        document.querySelector(".polarcontainer").classList.remove("visible");
-    }, 3000);
+    const heart = document.querySelector(".heartcontainer");
+    const button = document.querySelector(".button");
+    const polar = document.querySelector(".polarcontainer");
+    const message = document.querySelector(".message");
+    const speaker = document.querySelector(".speakerbox");
+    const cannon = document.querySelector(".cannon");
 
-    setTimeout(() => {
-        document.querySelector(".speakerbox").classList.remove("visible");
-    }, 3000);
-    let button = document.querySelector(".button");
+    setTimeout(() => cannon.classList.add("big"), 5000);
+    setTimeout(() => polar.classList.add("visible"), 7200);
+    setTimeout(() => speaker.classList.add("visible"), 7200);
+    setTimeout(() => button.classList.add("visible"), 7000);
+    setTimeout(() => heart.classList.add("visible"), 7000);
+
+    setTimeout(() => polar.classList.remove("visible"), 12000);
+    setTimeout(() => speaker.classList.remove("visible"), 12000);
+
+
     button.addEventListener("click",
         function () {
             clickedStart = true;
             button.classList.remove("visible");
+            polar.classList.remove("visible");
+            speaker.classList.remove("visible");
             textSequence();
         });
 };

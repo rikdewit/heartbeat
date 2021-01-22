@@ -7,7 +7,7 @@ const { hostname } = require('os');
 process.env.TZ = 'Europe/Amsterdam'
 
 const app = express()
-const port = 3000
+const port = 3001
 app.use(express.static('public'))
 app.get('/data', (req, res) => {
     getCurrentHeartRate().then(data => res.send(data));
@@ -41,12 +41,12 @@ function getCurrentHeartRate() {
     return new Promise((resolve, reject) => {
         fs.createReadStream('./data.csv')
             .pipe(csv({ delimiter: ',' }), columns = false)
-            .on('data', function(csvrow) {
+            .on('data', function (csvrow) {
                 //console.log(csvrow);
                 //do something with csvrow
                 csvData.push(csvrow);
             })
-            .on('end', function() {
+            .on('end', function () {
                 //do something with csvData
                 // console.log(csvData);
                 resolve(csvData);

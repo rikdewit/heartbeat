@@ -5,10 +5,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js"></script>
+    <script src="cannon.min.js"></script>
     <script src="interaction.js"></script>
     <script src="heart.js" defer></script>
+    <script src="cannon.js" defer></script>
+
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="audio.css">
+    <link rel="stylesheet" href="cannon.css">
+    
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Karla:ital@1&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital@1&display=swap" rel="stylesheet">
@@ -16,6 +22,9 @@
 </head>
 
 <body>
+    <div class="cannoncontainer">
+        <div class="cannon"></div>
+    </div>
     <div class="heartcontainer">
         <div class="heart"></div>
     </div>
@@ -26,16 +35,16 @@
     </div>
 
     <div class="buttoncontainer">
-        <div class="button visible">
+        <div class="button">
             <b>Start</b>
         </div>
     </div>
 
-    <div class="polarcontainer visible">
+    <div class="polarcontainer">
         <img class="polar" src="polar_logo.svg" alt="polar_logo">
     </div>
 
-        <div class="speakerbox visible">
+        <div class="speakerbox">
             <div class="wave"></div>
             <div class="wave1"></div>
             <div class="wave2"></div>
