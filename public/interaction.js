@@ -63,3 +63,8 @@ function disappear() {
 function text(text) {
     document.querySelector(".message").innerText = text;
 }
+
+window.addEventListener('resize', () => {
+    let vh = window.innerHeight * 0.01; //fix for mobile vh
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+});

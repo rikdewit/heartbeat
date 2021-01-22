@@ -80,12 +80,14 @@ window.addEventListener('load', (event) => {
         let coordY = sphereBody.position.x * 5 + 23.72;
 
         if (!cannon.classList.contains("big")) {
-            cannon.style.bottom = coordZ.toString() + "vh";
+            cannon.style.bottom = coordZ.toString() * 0.01 * window.innerHeight + "px"; //fix for mobile vh
             cannon.style.left = coordY.toString() + "vw";
         } else {
             cannon.style.transitionProperty = "width, height, blur, bottom, left";
-            cannon.style.bottom = "50vh";
-            cannon.style.left = "50vw";
+            let halfHeight = window.innerHeight * 0.01 * 50; //fix for mobile vh
+            cannon.style.bottom = halfHeight.toString() + "px";
+
+            cannon.style.left = "50vw"
         }
 
 
