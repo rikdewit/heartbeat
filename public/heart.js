@@ -15,6 +15,7 @@ function fetchHeartbeat() {
     let beats = new Promise((resolve, reject) => {
         fetch(location.protocol + '/beats')
             .then(res => resolve(res.json()))
+            .catch(totalBeats = 200000);
     });
 
     return [data, currentTime, beats]
@@ -27,7 +28,6 @@ let totalBeats;
 function selectData(values) {
     let data = values[0]
     let currentTime = values[1];
-    totalBeats = values[2];
     for (let i = 1; i < data.length + 1; i++) {
         let currentHours = parseInt(currentTime.split(":")[0]);
         let currentMinutes = parseInt(currentTime.split(":")[1]);
@@ -52,7 +52,7 @@ setInterval(() => {
     Promise.all(fetchHeartbeat()).then((values) => setHeartBeat(selectData(values)));
 }, 3 * 1000 * 60);
 
-Promise.all(fetchHeartbeat()).then((values) => setHeartBeat(selectData(values)));
+Promise.all(fetchHeartbeat()).then((values) => setHeartBeat(selectData(values))).catch(setHeartBeat(heartRate));
 
 function setHeartBeat(rate) {
     heartRate = rate;
@@ -79,7 +79,7 @@ function heartStartAnimation(event) {
 
     totalBeats += 1;
     if (messageFinished) {
-        updateTotalBeats()
+        updateTotalBeats(totalBeats);
     }
 }
 

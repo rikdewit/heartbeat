@@ -43,8 +43,8 @@ function textSequence() {
     setTimeout(appear, 16000);
     setTimeout(function () {
         messageFinished = true;
+        document.querySelector(".message").classList.add("numbers");
         updateTotalBeats();
-        document.querySelector("#.essage").classList.add("numbers");
     }, 16000)
 }
 
