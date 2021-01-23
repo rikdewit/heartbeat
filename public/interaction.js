@@ -1,22 +1,34 @@
 let messageFinished = false;
 let clickedStart = false;
 window.onload = (event) => {
-    const heart = document.querySelector(".heartcontainer");
+    const heartcontainer = document.querySelector(".heartcontainer");
+    const heart = document.querySelector(".heart");
     const button = document.querySelector(".button");
-    const polar = document.querySelector(".polarcontainer");
+    const buttoncontainer = document.querySelector(".buttoncontainer");
     const message = document.querySelector(".message");
+    const messagecontainer = document.querySelector(".messagecontainer");
+    const polar = document.querySelector(".polarcontainer");
     const speaker = document.querySelector(".speakerbox");
     const cannon = document.querySelector(".cannon");
 
-    setTimeout(() => cannon.classList.add("big"), 5000);
-    setTimeout(() => polar.classList.add("visible"), 7200);
-    setTimeout(() => speaker.classList.add("visible"), 7200);
-    setTimeout(() => button.classList.add("visible"), 7000);
-    setTimeout(() => heart.classList.add("visible"), 7000);
 
+    heart.style.animationPlayState = "paused";
+    messagecontainer.style.animationPlayState = "paused";
+    buttoncontainer.style.animationPlayState = "paused";
+
+    setTimeout(() => cannon.classList.add("big"), 4900);
+
+
+    setTimeout(() => button.classList.add("visible"), 7000);
+    setTimeout(() => heartcontainer.classList.add("visible"), 7000);
     setTimeout(() => cannon.classList.add("hidden"), 7000);
 
+    setTimeout(() => heart.style.animationPlayState = "running", 7000);
+    setTimeout(() => messagecontainer.style.animationPlayState = "running", 7000);
+    setTimeout(() => buttoncontainer.style.animationPlayState = "running", 7000);
 
+    setTimeout(() => polar.classList.add("visible"), 7200);
+    setTimeout(() => speaker.classList.add("visible"), 7200);
 
     setTimeout(() => polar.classList.remove("visible"), 12000);
     setTimeout(() => speaker.classList.remove("visible"), 12000);

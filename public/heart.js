@@ -47,7 +47,7 @@ function selectData(values) {
 
 }
 
-let heartRate = 60;
+let heartRate = 180;
 setInterval(() => {
     Promise.all(fetchHeartbeat()).then((values) => setHeartBeat(selectData(values)));
 }, 3 * 1000 * 60);
